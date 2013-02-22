@@ -17,8 +17,11 @@
 
 package org.jboss.aerogear.push;
 
+/**
+ * Notifies caller that a Push-Message has been delivered to a sub-system.
+ */
 public interface AcknowledgeListener {
 
-	// hrm...
+	// hrm... really a good idea?
 	void onDelivery(Object pushContext);
 }

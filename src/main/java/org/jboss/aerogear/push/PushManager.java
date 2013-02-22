@@ -19,10 +19,12 @@ package org.jboss.aerogear.push;
 
 import java.util.concurrent.Future;
 
+/**
+ * Delivers/Enqueues a message to all available push systems, like GCM or Apple.
+ */
 public interface PushManager {
 
 	// names... we need to EVENTUALLY decide on the names...
-
     <T> void enqueue(T message);
 
     // async...

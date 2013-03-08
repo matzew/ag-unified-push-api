@@ -17,21 +17,36 @@
 
 package org.jboss.aerogear.push;
 
-import java.util.concurrent.Future;
-
 /**
- * Delivers/Enqueues a message to all available push systems, like GCM or Apple.
+ * Delivers/Enqueues a message to all available <code>PushProvider</code>s, like multiple Android or Apple Applications.
  */
 public interface PushManager {
 
-	// names... we need to EVENTUALLY decide on the names...
-    <T> void enqueue(T message);
+    /**
+     * Enqueue a message to all the registered <code>PushProvider</code>s. 
+     * 
+     * TODO: Do we need callbacks/Future, for a successful delivery to the push systen (GCM/Apple)?
+     *     We can't guarantee that the message arrives the phone, but we can see if we could give them to the networks (e.g. Apple/Google).
+     */
+    <T> void enqueue(T message, AcknowledgeListener listener);
 
-    // async...
-    // not sure we can really do that...
-    <T> void deliver(T message, AcknowledgeListener listener);
+    /**
+     * Enqueue a message to a subset of the registered <code>PushProvider</code>s... 
+     * 
+     * TODO: Do we need callbacks/Future, for a successful delivery to the push systen (GCM/Apple)?
+     *     We can't guarantee that the message arrives the phone, but we can see if we could give them to the networks (e.g. Apple/Google).
+     */
+    <T> void enqueue(T appfilter, T message);
 
-    // future has benfit over simple callback... (e.g. isComplete() etc..)
-    <T> void deliver(T message, Future<T> foo);
-
+    /**
+     * Adds a <code>PushProvider</code> instance. A <code>PushProvider</code> is an abstraction of one APP-ID (Apple) or API-Key (Google).
+     *
+     * Each native application needs its own <code>PushProvider</code>.
+     */
+    void registerPushProvider(ApplicationPushProvider pp);
+    
+    /**
+     * Removes a <code>PushProvider</code> instance.
+     */
+    void unregisterPushProvider(ApplicationPushProvider pp);
 }

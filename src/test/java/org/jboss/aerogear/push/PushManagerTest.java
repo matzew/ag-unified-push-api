@@ -17,13 +17,73 @@
 
 package org.jboss.aerogear.push;
 
+import org.jboss.aerogear.push.impl.PushManagerImpl;
+import org.jboss.aerogear.push.providers.APNsPushProvider;
+import org.jboss.aerogear.push.providers.GCMPushProvider;
+import org.junit.Before;
 import org.junit.Test;
 
 public class PushManagerTest {
-
     
-    @Test
-    public void interfaceBuilder() {
-        // TODO
+    private PushManager pushManger;
+    
+    @Before
+    public void setup() {
+        pushManger = new PushManagerImpl();
     }
+
+    @Test
+    public void simpleTestWithoutProviders() {
+        pushManger.enqueue("AeroGear's Unified Push rocks!", new AcknowledgeListener() {
+            @Override
+            public void onDelivery(Object pushContext) {
+                System.out.println("Submitted to networks");
+            }
+        });
+    }
+
+    @Test
+    public void simpleApplePush() {
+        // register one apple app:
+        pushManger.registerPushProvider(new APNsPushProvider());
+        
+        // send simple message
+        pushManger.enqueue("AeroGear's Unified Push rocks!", new AcknowledgeListener() {
+            @Override
+            public void onDelivery(Object pushContext) {
+                System.out.println("Submitted to networks");
+            }
+        });
+    }
+
+    @Test
+    public void simpleGooglePush() {
+        // register one Android app:
+        pushManger.registerPushProvider(new GCMPushProvider());
+        
+        // send simple message
+        pushManger.enqueue("AeroGear's Unified Push rocks!", new AcknowledgeListener() {
+            @Override
+            public void onDelivery(Object pushContext) {
+                System.out.println("Submitted to networks");
+            }
+        });
+    }
+
+    @Test
+    public void multipleAppPush() {
+        // register one apple app:
+        pushManger.registerPushProvider(new APNsPushProvider());
+        // register one Android app:
+        pushManger.registerPushProvider(new GCMPushProvider());
+        
+        // send simple message
+        pushManger.enqueue("AeroGear's Unified Push rocks!", new AcknowledgeListener() {
+            @Override
+            public void onDelivery(Object pushContext) {
+                System.out.println("Submitted to networks");
+            }
+        });
+    }
+
 }

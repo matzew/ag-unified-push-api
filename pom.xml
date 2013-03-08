@@ -56,12 +56,12 @@
   </developers>
 
   <!-- work around GCM issue -->
-  <!--repositories>
+  <repositories>
     <repository>
       <id>gcm-server-repository</id>
       <url>https://raw.github.com/slorber/gcm-server-repository/master/releases/</url>
     </repository>
-  </repositories-->
+  </repositories>
   
    <scm>
      <connection>scm:git:git@github.com:matzew/ag-push.git</connection>
@@ -79,12 +79,20 @@
 
     <!-- This is NOT the original Google GCM-Server!
          They do NOT offer any maven lib...
+     -->
     <dependency>
       <groupId>com.google.android.gcm</groupId>
       <artifactId>gcm-server</artifactId>
       <version>1.0.2</version>
     </dependency>
-    -->
+
+    <!-- device database... -->
+    <dependency>
+      <groupId>org.jboss.aerogear</groupId>
+      <artifactId>device-registration-service</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
 
     <!-- TEST -->
     <dependency>

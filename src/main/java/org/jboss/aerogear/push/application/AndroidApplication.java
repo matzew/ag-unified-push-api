@@ -15,17 +15,15 @@
  * limitations under the License.
  */
 
-package org.jboss.aerogear.push;
+package org.jboss.aerogear.push.application;
 
 /**
- * Delivers/Enqueues a message to a concrete push provider. An implementation could be 
- * using the Apple Push Notification System.
+ * An Android version of the mobile app....
  */
-public interface ApplicationPushProvider {
-
+public interface AndroidApplication extends MobileApplication {
+    
     /**
-     * 
-     * @param simpleMessage
+     * API key, from the Google API console. Required to submit messages to the Google Cloud Messaging System.
      */
-    void push(String simpleMessage);
+    void setGoogleAPIKey(String apiKey);
 }

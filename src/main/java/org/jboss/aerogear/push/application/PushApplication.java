@@ -33,7 +33,7 @@ public interface PushApplication {
     // some name/desc....
     void setName(String name);
     String getName();
-    void setDescription(String descriptiom);
+    void setDescription(String description);
     String getDescription();
     
     /**

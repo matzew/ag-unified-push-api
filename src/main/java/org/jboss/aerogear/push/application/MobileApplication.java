@@ -32,7 +32,7 @@ public interface MobileApplication {
      * to a single mobile app (e.g. only iOS users receive a push message)
      */
     // really needed ?
-    String getMobileAppId();
+    String getAeroGearMobileAppId();
     
     /**
      * Returns complete list of all installed instances of this mobile application 

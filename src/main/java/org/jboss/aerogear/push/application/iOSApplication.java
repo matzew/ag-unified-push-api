@@ -21,6 +21,12 @@ package org.jboss.aerogear.push.application;
  * An iOS version of the mobile app....
  */
 public interface iOSApplication extends MobileApplication {
+    
+    /**
+     * The Apple APP-ID, from the provisioning portal 
+     */
+    void setAppleAppId(String appId);
+    String getAppleAppId();
 
     /**
      * The exported .p12 file from the Apple Developer portal. The file is required for establishing an APNs connection .

@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jboss.aerogear</groupId>
-  <artifactId>aerogear-unified-push</artifactId>
+  <artifactId>aerogear-unified-push-api</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
 

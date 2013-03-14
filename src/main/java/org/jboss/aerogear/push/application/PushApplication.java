@@ -46,7 +46,7 @@ public interface PushApplication {
     /**
      * List of all mobile variations for this server side abstraction (e.g. one iOS app and/oe one Android app)
      */
-    List<? extends MobileApplication> getMobileApplications();
+    List<MobileApplication> getMobileApplications();
     
     /**
      * Adds a new {@link MobileApplication} to the server abstraction;

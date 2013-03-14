@@ -57,7 +57,7 @@ public class iOSApp extends MobileApplicationImpl implements iOSApplication {
         List<MobileApplicationInstance> instances = this.getInstances();
         //String token = instances.get(0).getDeviceToken();
         
-        String token = "8ecda0fe6d8e135cd97485a395338c1a9f4de5ee5f5fe2847d8161398e978d11";
+        String token = "123";
         // send it out: 
         // blocking IO....:
         

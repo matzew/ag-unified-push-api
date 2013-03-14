@@ -24,8 +24,8 @@ public class UnifiedPushManagerTest {
     public void registerApplication() {
         // CREATE push app:
         PushApplication pa = new PushApplicationImpl();
-        pa.setDescription("Test Push App");
-        pa.setName("All The Thingz");
+        pa.setName("All The Thingz - backend");
+        pa.setDescription("Logical rep. of a application that needs to push notifications to different mobile apps");
         
         // register it with server:
         pushMgr.registerPushApplication(pa);
@@ -35,13 +35,13 @@ public class UnifiedPushManagerTest {
     public void registerApplicationWithiOSApp() {
         // CREATE push app:
         PushApplication pa = new PushApplicationImpl();
-        pa.setDescription("Test Push App");
-        pa.setName("All The Thingz");
+        pa.setName("All The Thingz - backend");
+        pa.setDescription("Logical rep. of a application that needs to push notifications to different mobile apps");
 
         iOSApp iosApp = new iOSApp();
-        iosApp.setAppleAppId("net.wessendorf.Pusher");
-        iosApp.setCertificate("/Users/matzew/Desktop/PUSHER.p12");
-        iosApp.setPassphrase("foo");
+        pusher.setAppleAppId("net.wessendorf.MyApp");
+        pusher.setCertificate("/Users/matzew/Desktop/cert.p12");
+        pusher.setPassphrase("yo,dude");
         
         pa.addMobileApplication(iosApp);
         
@@ -54,8 +54,8 @@ public class UnifiedPushManagerTest {
     public void sendNotificationTo_iOS_and_Android() {
         // CREATE push app:
         PushApplication pa = new PushApplicationImpl();
-        pa.setDescription("Test Push App");
-        pa.setName("All The Thingz");
+        pa.setName("All The Thingz - backend");
+        pa.setDescription("Logical rep. of a application that needs to push notifications to different mobile apps");
 
         // iOS app:
         iOSApp pusher = new iOSApp();

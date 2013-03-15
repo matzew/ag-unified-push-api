@@ -23,18 +23,18 @@ import org.jboss.aerogear.push.impl.AndroidApp;
 import org.jboss.aerogear.push.impl.MobileApplicationInstanceImpl;
 import org.jboss.aerogear.push.impl.PushApplicationImpl;
 import org.jboss.aerogear.push.impl.SenderImpl;
-import org.jboss.aerogear.push.impl.UnifiedPushManagerImpl;
+import org.jboss.aerogear.push.impl.PushApplicationRegistryImpl;
 import org.jboss.aerogear.push.impl.iOSApp;
 import org.junit.Before;
 import org.junit.Test;
 
 public class UnifiedPushManagerTest {
 
-    private UnifiedPushManager pushMgr;
+    private PushApplicationRegistry pushMgr;
 
     @Before
     public void setup() {
-        pushMgr = new UnifiedPushManagerImpl();
+        pushMgr = new PushApplicationRegistryImpl();
     }
 
     @Test
@@ -47,25 +47,25 @@ public class UnifiedPushManagerTest {
         // iOS app:
         iOSApp pusher = new iOSApp();
         pusher.setAppleAppId("net.wessendorf.Pusher");
-        pusher.setCertificate("/Users/matzew/Desktop/CERT.p12");
+        pusher.setCertificate("/Users/matzew/Desktop/PUSHER.p12");
         pusher.setPassphrase("foo");
 
         // DEVICE REG:
         MobileApplicationInstance installedApp = new MobileApplicationInstanceImpl();
         installedApp
-                .setDeviceToken("MEH-123");
+                .setDeviceToken("adsadsasdadsdas");
         pusher.addInstance(installedApp);
 
         // add the iOS app:
         pa.addMobileApplication(pusher);
 
         AndroidApp todoApp = new AndroidApp();
-        todoApp.setGoogleAPIKey("KEY");
+        todoApp.setGoogleAPIKey("dsdsaadsadsdasadsdsa");
 
         // DEVICE REG:
         MobileApplicationInstance installedAndroidApp = new MobileApplicationInstanceImpl();
         installedAndroidApp
-                .setDeviceToken("TOKEN-FOR-Android");
+                .setDeviceToken("sdadadssdaasddsaasd");
         todoApp.addInstance(installedAndroidApp);
 
         // add the app:

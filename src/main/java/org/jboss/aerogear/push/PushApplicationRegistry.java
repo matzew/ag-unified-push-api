@@ -24,7 +24,7 @@ import org.jboss.aerogear.push.application.PushApplication;
 /**
  * Manages all "Push applications"
  */
-public interface UnifiedPushManager {
+public interface PushApplicationRegistry {
     
     /**
      * Adds a <code>PushApplication</code> instance to the Unified Push Server.

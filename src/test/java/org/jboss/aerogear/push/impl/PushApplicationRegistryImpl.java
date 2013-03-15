@@ -23,10 +23,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jboss.aerogear.push.UnifiedPushManager;
+import org.jboss.aerogear.push.PushApplicationRegistry;
 import org.jboss.aerogear.push.application.PushApplication;
 
-public class UnifiedPushManagerImpl implements UnifiedPushManager {
+public class PushApplicationRegistryImpl implements PushApplicationRegistry {
     
     private final Map<String, PushApplication> pushApps = new LinkedHashMap<String, PushApplication>(); 
 
